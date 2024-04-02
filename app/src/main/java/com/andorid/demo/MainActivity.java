@@ -1,7 +1,7 @@
-package com.example.demo;
+package com.andorid.demo;
 
+import com.android.demo.databinding.ActivityMainBinding;
 import com.common.base.BaseActivity;
-import com.example.demo.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
 

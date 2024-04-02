@@ -19,7 +19,6 @@ public class DoubleUtils {
      * @return 两个参数的和
      */
     public static double add(double v1, double v2) {
-
         BigDecimal b1 = new BigDecimal(Double.toString(v1));
         BigDecimal b2 = new BigDecimal(Double.toString(v2));
         return b1.add(b2).doubleValue();
@@ -93,7 +92,6 @@ public class DoubleUtils {
      * @return 四舍五入后的结果
      */
     public static double round(double v, int scale) {
-
         if (scale < 0) {
             throw new IllegalArgumentException("The scale must be a positive integer or zero");
         }

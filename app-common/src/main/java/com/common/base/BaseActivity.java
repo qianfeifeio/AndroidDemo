@@ -30,7 +30,7 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
 
     @Override
     public Context getContext() {
-        return null;
+        return this;
     }
 
 
