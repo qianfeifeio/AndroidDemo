@@ -128,4 +128,5 @@ android {
 dependencies {
     // 引用封装的公共基类
     implementation project(':app-common')
+    implementation project(':chinesetts')
 }

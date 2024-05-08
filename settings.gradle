@@ -11,7 +11,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
+
 }
 rootProject.name = "AndroidDemo"
 include ':app'
 include ':app-common'
+include ':chinesetts'
