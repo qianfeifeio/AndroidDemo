@@ -61,71 +61,71 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
     }
 
 
-        public abstract void init ();
+    public abstract void init();
 
-        /**
-         * 防止页面view控件短时间重复点击
-         *
-         * @param ev
-         * @return
-         */
-        @Override
-        public boolean dispatchTouchEvent (MotionEvent ev){
-            if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-                if (this.isFastDoubleClick()) {
-                    return true;
-                }
-            }
-            return super.dispatchTouchEvent(ev);
-        }
-
-        public static long lastClickTime = 0;
-
-        public static boolean isFastDoubleClick () {
-            long time = System.currentTimeMillis();
-            long timeD = time - lastClickTime;
-            if (timeD >= 0 && timeD <= 600) {
+    /**
+     * 防止页面view控件短时间重复点击
+     *
+     * @param ev
+     * @return
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            if (this.isFastDoubleClick()) {
                 return true;
-            } else {
-                lastClickTime = time;
-                return false;
             }
         }
-
-        /**
-         * 字符串非空判断（空值返回“”，有值返回原来的数据）
-         *
-         * @param checkInfo
-         * @return
-         */
-        protected synchronized String checkEmpty (String checkInfo){
-            //字符串为null或“”的场合
-            if (checkInfo == null || checkInfo.length() == 0) {
-                return "";
-            }
-            //空格字符串的场合
-            if (checkInfo.trim().length() == 0) {
-                return "";
-            }
-            //去除两头的空格后返回
-            return checkInfo.trim();
-        }
-
-
-        public String cleanEmpty (String inputValue){
-            if (inputValue == null || inputValue.length() == 0 || inputValue.equalsIgnoreCase("null")) {
-                return "";
-            } else {
-                return inputValue;
-            }
-        }
-
-        public String cleanEmpty (String inputValue, String defValue){
-            if (inputValue == null || inputValue.length() == 0 || inputValue.equalsIgnoreCase("null")) {
-                return defValue;
-            } else {
-                return inputValue;
-            }
-        }
-
+        return super.dispatchTouchEvent(ev);
     }
+
+    public static long lastClickTime = 0;
+
+    public static boolean isFastDoubleClick() {
+        long time = System.currentTimeMillis();
+        long timeD = time - lastClickTime;
+        if (timeD >= 0 && timeD <= 600) {
+            return true;
+        } else {
+            lastClickTime = time;
+            return false;
+        }
+    }
+
+    /**
+     * 字符串非空判断（空值返回“”，有值返回原来的数据）
+     *
+     * @param checkInfo
+     * @return
+     */
+    protected synchronized String checkEmpty(String checkInfo) {
+        //字符串为null或“”的场合
+        if (checkInfo == null || checkInfo.length() == 0) {
+            return "";
+        }
+        //空格字符串的场合
+        if (checkInfo.trim().length() == 0) {
+            return "";
+        }
+        //去除两头的空格后返回
+        return checkInfo.trim();
+    }
+
+
+    public String cleanEmpty(String inputValue) {
+        if (inputValue == null || inputValue.length() == 0 || inputValue.equalsIgnoreCase("null")) {
+            return "";
+        } else {
+            return inputValue;
+        }
+    }
+
+    public String cleanEmpty(String inputValue, String defValue) {
+        if (inputValue == null || inputValue.length() == 0 || inputValue.equalsIgnoreCase("null")) {
+            return defValue;
+        } else {
+            return inputValue;
+        }
+    }
+
+}
